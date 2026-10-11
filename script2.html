@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sample.css">
+    <title> Mark Calculator </title>
+</head>
+<body>
+    <main>
+        <h1>Student Result Calculator</h1>
+        <p>Click below to calculate a student's result.</p>
+        <button onclick="start()">Start</button>
+    </main>
+    <script>
+        function start() {
+            let Calculate;
+            do {
+                let name = prompt("Enter Student Name: ");
+                let mark1 = Number(prompt("Enter Mark 1: "));
+                let mark2 = Number(prompt("Enter Mark 2: "));
+                let mark3 = Number(prompt("Enter Mark 3: "));
+                function add(a, b, c) {
+                    return a + b + c;
+                }
+                function avg(tot) {
+                    return (tot)/3;
+                }
+                const total = [mark1, mark2, mark3];
+                const valid = true;
+                for (let i = 0; i < total.length; i++) {
+                    if (total[i] < 0 || total[i] > 100){
+                        valid = false;
+                        break;
+                    }
+                }
+                if (!valid) {
+                    alert("Note!!! Each marks should be above 0 and below 100")
+                }
+                else {
+                    const Total = add(mark1, mark2, mark3);
+                    const Average = avg(Total);
+                    let grade;
+                    if (Average >= 90) {
+                        grade = 'A';
+                    } else if (Average >=75) {
+                        grade = 'B';
+                    } else if (Average >=50) {
+                        grade = 'C';
+                    } else {
+                        grade = 'F';
+                    }
+                    alert("Student name: "+ name +"\n"+"Total marks: "+ Total + "\n" + "Average: " + Average + "\n" + "Grade: " + grade );
+                }
+                Calculate = confirm("Would you like to calculate another student mark?");
+            } while (Calculate)
+        }
+    </script>
+</body>
+</html>

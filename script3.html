@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sample.css">
+    <title>Number Analyzer and Pattern Generator</title>
+</head>
+<body>
+    <main>
+        <h1>Number Analyzer and Pattern Generator</h1>
+        <p>Click below to analyze a number.</p>
+        <button onclick="start()">Start</button>
+    </main>
+
+    <script>
+        function start() {
+            let again;
+            function multi(num) {
+                let table = "Multiplation table of" + num +"\n";
+                for (i=1; i<=10; i++) {
+                    table += num + "x" + i + "=" + num * i + "\n";
+                }
+                alert(table);
+            }
+            do {
+                const num = Number(prompt(("Enter the number: ")));
+                if (num<1 || !Number.isInteger(num)) {
+                    alert("Please enter the valid input");
+                }
+                else {
+                    let Type;
+                    if (num % 2 == 0) {
+                        Type = "even";
+                    }
+                    else {
+                        Type = "odd";
+                    }
+                    multi(num);
+                    let sum = 0;
+                    for (i=1; i<=num; i++) {
+                        sum += i;
+                    }
+                    alert("Sum of numbers from 1 to " + num + " is " + sum);
+                    let pattern = "";
+                    if (Type == "even") {
+                        for (let i=1; i<=num; i++) {
+                            for (let j=1; j<=num; j++) {
+                                pattern += "* ";
+                            }
+                            pattern += "\n";
+                        }
+                    }
+                    else {
+                        for (let i=1; i<=num; i++) {
+                            for (let j=1; j<=i; j++) {
+                                pattern += "* ";
+                            }
+                            pattern += "\n";
+                        }
+                    }
+                    console.log(pattern);
+                }
+                again = confirm("Would you like to calculate for another number?")
+            } while(again)
+        }
+        </script>
+</body>
+</html>
