@@ -42,24 +42,27 @@
                         sum += i;
                     }
                     alert("Sum of numbers from 1 to " + num + " is " + sum);
-                    let pattern = "";
-                    if (Type == "even") {
-                        for (let i=1; i<=num; i++) {
-                            for (let j=1; j<=num; j++) {
-                                pattern += "* ";
+                    function pattern() {
+                        let pattern = "";
+                        if (Type == "even") {
+                            for (let i=1; i<=num; i++) {
+                                for (let j=1; j<=num; j++) {
+                                    pattern += "* ";
+                                }
+                                pattern += "\n";
                             }
-                            pattern += "\n";
                         }
-                    }
-                    else {
-                        for (let i=1; i<=num; i++) {
-                            for (let j=1; j<=i; j++) {
-                                pattern += "* ";
+                        else {
+                            for (let i=1; i<=num; i++) {
+                                for (let j=1; j<=i; j++) {
+                                    pattern += "* ";
+                                }
+                                pattern += "\n";
                             }
-                            pattern += "\n";
                         }
+                        return pattern;
                     }
-                    console.log(pattern);
+                    alert(pattern());
                 }
                 again = confirm("Would you like to calculate for another number?")
             } while(again)
