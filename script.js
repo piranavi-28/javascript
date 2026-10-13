@@ -6,20 +6,22 @@ function start() {
         {name: "tea", price:80},
         {name: "chips", price:50},
     ]
-
+    let List = "";
     function Menu() {
         console.log("=====Vending Machine Menu=====")
         for (let i = 0; i < item.length; i++) {
             console.log((i+1) + ". " + item[i].name + " - ₹" + item[i].price);
+            List += (i+1) + ". " + item[i].name + " - ₹" + item[i].price + "\n";
         }
+        
     }
     function Price(amount, price) {
         return amount-price;
     }
-
+    Menu();
     let again;
     do {
-        Menu();
+        alert(List);
         const itemnum = Number(prompt("Enter the item number from 1 to 5: "));
         if (!Number.isInteger(itemnum) || itemnum < 1 || itemnum > 5) {
             alert("Invalid item number, Please put valid input!!!")
