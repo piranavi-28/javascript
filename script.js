@@ -1,4 +1,4 @@
-function start() {
+function start() {  
     const item = [
         {name: "water", price:20},
         {name: "juice", price:100},
@@ -21,13 +21,13 @@ function start() {
     do {
         Menu();
         const itemnum = Number(prompt("Enter the item number from 1 to 5: "));
-        if (itemnum === null || !Number.isInteger(itemnum) || itemnum < 1 || itemnum > 5) {
+        if (!Number.isInteger(itemnum) || itemnum < 1 || itemnum > 5) {
             alert("Invalid item number, Please put valid input!!!")
         }
         else {
             const amount = Number(prompt("Enter the amount: "));
             const Item = item[itemnum - 1];
-            if (amount === null || amount < 0 ) {
+            if (isNaN(amount) || amount < 0 ) {
                 alert("Please enter valid or non-negative amount!!!")
             }
             else if (amount < Item.price) {
